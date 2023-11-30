@@ -18,9 +18,6 @@ async function sprintChallenge5() { // Note the async keyword, in case you wish 
     return {...learner, mentors: mentors.filter(mentor => learner.mentors.includes(mentor.id))}
     })
   
-  
-  // console.log(finalLearners)
-  //console.log(finalLearners[0]['mentors'][0]['firstName'], '', finalLearners[0]['mentors'][0]['lastName'])
   manipCard(finalLearners)
   
   function manipCard(finalLearners){   
@@ -53,7 +50,7 @@ async function sprintChallenge5() { // Note the async keyword, in case you wish 
       }
       if(!isSelected){
          div2.classList.add('selected')
-         p.textContent = 'The selected Learner is ' + dat.fullName
+         p.textContent = 'The selected learner is ' + dat.fullName
          h3.textContent = dat.fullName + ', ID ' + dat.id
       } 
       else{
@@ -76,11 +73,33 @@ async function sprintChallenge5() { // Note the async keyword, in case you wish 
      div2.classList.add('card')
      h4.classList.add('closed')
      li.textContent = dat.mentors[0]['firstName'] + ' ' + dat.mentors[0]['lastName']
-     if(dat.mentors.length >= 2){
+     
+     if(dat.mentors.length === 2){
+      let li2 = document.createElement('li')
+      ul.appendChild(li2)
+      console.log('yes2')
+      li2.textContent = dat.mentors[1]['firstName'] + ' ' + dat.mentors[1]['lastName']
+     } else if(dat.mentors.length === 3){
       let li2 = document.createElement('li')
       ul.appendChild(li2)
       li2.textContent = dat.mentors[1]['firstName'] + ' ' + dat.mentors[1]['lastName']
-     }
+     
+      let li3 = document.createElement('li')
+      ul.appendChild(li3)
+      li3.textContent = dat.mentors[2]['firstName'] + ' ' + dat.mentors[2]['lastName']
+     } else if(dat.mentors.length === 4){
+      let li2 = document.createElement('li')
+      ul.appendChild(li2)
+      li2.textContent = dat.mentors[1]['firstName'] + ' ' + dat.mentors[1]['lastName']
+     
+      let li3 = document.createElement('li')
+      ul.appendChild(li3)
+      li3.textContent = dat.mentors[2]['firstName'] + ' ' + dat.mentors[2]['lastName']
+
+      let li4 = document.createElement('li')
+      ul.appendChild(li4)
+      li4.textContent = dat.mentors[3]['firstName'] + ' ' + dat.mentors[3]['lastName']
+     } 
      console.log(dat.mentors)
      h3.textContent = dat.fullName
      div3.textContent = dat.email
